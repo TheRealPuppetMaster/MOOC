@@ -1,0 +1,90 @@
+MOOC
+
+Selite
+
+
+
+Participants
+Server
+User
+
+User send a request to server:
+https://studies.cs.helsinki.fi/exampleapp/notes
+→ GET
+
+Server send respons 
+→200 OK
+
+Pyydetään .Css
+https://studies.cs.helsinki.fi/exampleapp/main.css
+Serveri lähettää .CSS
+
+Pyydetään main.js
+https://studies.cs.helsinki.fi/exampleapp/main.js
+Serveri lähettää .js
+
+Lopuksi 
+https://studies.cs.helsinki.fi/exampleapp/data.json
+Renderöityy JSON tieto
+
+-----------------------------------------------------------------------
+Oma selite
+Tehtävä 4
+
+Participants
+Server
+User
+
+Aluksi pyydetään request (yllä mainitut asiat)
+https://studies.cs.helsinki.fi/exampleapp/new_note
+→ POST
+Saadaan vastaukseksi serveriltä 302 Found
+
+Lähetettään kohteeseen
+POST /exampleapp/new_note HTTP/1.1
+
+Saadaan uusivastaus GET
+ja status 200 OK
+
+Eli käydään kaikki uudelleen läpi mitä alku selityksessä, jotta voidaan päivittää sivu uudella tiedolla
+joka lähetettiin osoitteeseen POST /exampleapp/new_note HTTP/1.1
+-----------------------------------------------------------------------
+Tehtävä 5
+
+Participants 
+Server User
+
+Aluksi pyydetään sivutiedot osoitteesta
+https://studies.cs.helsinki.fi/exampleapp/spa
+→ Status 200 (OK)
+
+Sen jälkeen ladataan sivulta main.css
+Serveri lähettää sen
+
+Sitten ladataan javascript tiedosto .js (spa.js)
+
+Lopuksi ladataan data.json koska suoritetaan spa.js ollut scripti
+
+Jokaisessa kohdassa serveri sulkee yhteyden hetkelliseksi kun tavarat on saatuna.
+------------------------------------------------------------------------
+Tehtävä 6
+
+Sama kuin kohdassa 5
+
+Erona tulee POST, jolla suoritetaan samalla javascript
+https://studies.cs.helsinki.fi/exampleapp/spa
+
+luodaan request, joka ylläpitää tiedon
+{content: "musta", date: "2024-01-17T17:00:58.005Z"}
+content
+: 
+"musta"
+date
+: 
+"2024-01-17T17:00:58.005Z
+
+sendToServer @ is: 43
+form.onsubmit @ 59
+
+Eli sivu päivittyy submittauksen jälkeen
+--------------------------------------------------------------------------
